@@ -4,10 +4,15 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseUser
 import com.heads.thinking.funnytests.Api
 import com.heads.thinking.funnytests.navigation.Screens
+import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
 
-class MainActivityViewModel @Inject constructor(val api: Api, val router: Router): ViewModel() {
+class MainActivityViewModel @Inject constructor(val api: Api, val router: Router, val navigatorHolder: NavigatorHolder): ViewModel() {
+
+    init {
+        showMainScreen()
+    }
 
     fun showMainScreen() {
         router.newRootScreen(Screens.SimpleTestListScreen)

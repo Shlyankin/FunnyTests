@@ -2,10 +2,18 @@ package com.heads.thinking.funnytests
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 
-@BindingAdapter("bind:imageUrl")
+@BindingAdapter("imageUrl")
 public fun loadImage(imageView: ImageView, imageUrl: String) {
-    Picasso.get().load(imageUrl).placeholder(R.drawable.bottle).into(imageView)
+    Picasso.get().load(imageUrl).placeholder(R.drawable.bottle).into(imageView, object: Callback {
+        override fun onSuccess() {
+        }
+
+        override fun onError(e: Exception?) {
+        }
+
+    })
 }

@@ -1,43 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="test"
+            type="com.heads.thinking.funnytests.model.Test" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="50dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false"
+            app:contentPadding="10dp">
 
-            <ImageView
-                android:id="@+id/testImageView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="This is test"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="36sp"
-                app:layout_constraintBottom_toBottomOf="@+id/testImageView"
-                app:layout_constraintEnd_toEndOf="@+id/testImageView"
-                app:layout_constraintStart_toStartOf="@+id/testImageView"
-                app:layout_constraintTop_toTopOf="@+id/testImageView" />
+                android:orientation="vertical">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                <ProgressBar
+                    android:id="@+id/imageProgress"
+                    android:padding="32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic"
+                    android:indeterminate="true"
+                    android:indeterminateTintMode="src_atop"
+                    android:indeterminateTint="@color/colorPrimary"/>
 
-</FrameLayout>
+                <ImageView
+                    android:id="@+id/testImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:id="@+id/headerTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{test.title}"
+                    android:textSize="@dimen/header_text" />
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{test.description}"
+                    android:textSize="@dimen/main_text" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

@@ -2,7 +2,7 @@ package com.heads.thinking.funnytests.model
 
 object CheckData {
     val tests = arrayListOf(
-        Test("0", "Cat or Dog", "*meow* or *woof*", "https://cdn.imgbin.com/20/12/21/imgbin-cats-and-dogs-AF7S2RAR2J6fQhWe5XeQGiKWE.jpg",
+        Test("0", "Cat or Dog", "*meow* or *woof*", "https://www.pngkey.com/png/full/55-558954_cats-and-dogs-png-dog-and-cat-png.png",
             arrayListOf(
                 Question(0, "What do you like?",
                     arrayListOf(Answer(0, "play", -1), Answer(1, "sleep", 1))),

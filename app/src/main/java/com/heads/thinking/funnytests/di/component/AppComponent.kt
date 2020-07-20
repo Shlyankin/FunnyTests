@@ -3,7 +3,6 @@ package com.heads.thinking.funnytests.di.component
 import android.content.Context
 import com.heads.thinking.funnytests.Api
 import com.heads.thinking.funnytests.App
-import com.heads.thinking.funnytests.RealApi
 import com.heads.thinking.funnytests.di.module.ApiModule
 import com.heads.thinking.funnytests.di.module.AppModule
 import com.heads.thinking.funnytests.di.module.NavigationModule
@@ -13,6 +12,7 @@ import dagger.Component
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import javax.inject.Singleton
+
 
 @AppScope
 @Singleton
