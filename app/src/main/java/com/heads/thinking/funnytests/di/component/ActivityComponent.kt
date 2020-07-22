@@ -1,7 +1,7 @@
 package com.heads.thinking.funnytests.di.component
 
 import android.content.Context
-import com.heads.thinking.funnytests.Api
+import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.di.module.ActivityModule
 import com.heads.thinking.funnytests.di.mvvm.ActivityViewModelModule
 import com.heads.thinking.funnytests.di.scope.ActivityScope
@@ -17,7 +17,7 @@ interface ActivityComponent {
     fun router(): Router
     fun navigationHolder(): NavigatorHolder
     fun realApi(): Api
-    fun context(): Context?
+    fun context(): Context
 
     fun inject(activity: MainActivity)
 }

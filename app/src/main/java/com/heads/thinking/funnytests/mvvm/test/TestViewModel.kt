@@ -1,8 +1,8 @@
-package com.heads.thinking.funnytests.mvp.test
+package com.heads.thinking.funnytests.mvvm.test
 
 import android.view.View
 import androidx.lifecycle.ViewModel
-import com.heads.thinking.funnytests.Api
+import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.navigation.Screens
 import ru.terrakok.cicerone.Router
@@ -18,10 +18,10 @@ class TestViewModel @Inject constructor(val api: Api, val router: Router): ViewM
     }
 
     fun startTest() {
-        router.navigateTo(Screens.TestPlayerScreen)
+        router.navigateTo(Screens.TestPlayerScreen(test))
     }
 
     fun startTest(view: View) {
-        router.navigateTo(Screens.TestPlayerScreen)
+        startTest()
     }
 }

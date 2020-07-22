@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -7,15 +8,12 @@
         <import type="android.view.View" />
 
         <variable
-            name="testViewModel"
-            type="com.heads.thinking.funnytests.mvvm.test.TestViewModel" />
+            name="testResultViewModel"
+            type="com.heads.thinking.funnytests.mvvm.test.TestResultViewModel" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.test.TestFragment">
-
+        android:layout_height="match_parent">
         <ImageView
             android:id="@+id/testImageView"
             android:layout_width="match_parent"
@@ -25,14 +23,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            imageUrl="@{testViewModel.test.imageUrl}"
+            imageUrl="@{testResultViewModel.testResult.imageUrl}"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
             android:id="@+id/headerTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{testViewModel.test.title}"
+            android:text="@{testResultViewModel.testResult.name}"
             android:textSize="@dimen/header_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +40,7 @@
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="@{testViewModel.test.description}"
+            android:text="@{testResultViewModel.testResult.description}"
             android:textSize="@dimen/main_text"
             android:textColor="@android:color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,14 +49,13 @@
             app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
         <Button
-            android:id="@+id/startTestButton"
+            android:id="@+id/endTestButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/start_test"
+            android:text="@string/finish_test"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{testViewModel.startTest}"/>
-
+            android:onClick="@{testResultViewModel.finishTest}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

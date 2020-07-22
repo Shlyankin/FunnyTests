@@ -1,8 +1,8 @@
 package com.heads.thinking.funnytests.di.component
 
 import android.content.Context
-import com.heads.thinking.funnytests.Api
 import com.heads.thinking.funnytests.App
+import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.di.module.ApiModule
 import com.heads.thinking.funnytests.di.module.AppModule
 import com.heads.thinking.funnytests.di.module.NavigationModule
@@ -24,7 +24,7 @@ interface AppComponent {
     fun realApi(): Api
 
     @AppContext
-    fun context(): Context?
+    fun context(): Context
 
     fun inject(app: App)
 

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.heads.thinking.funnytests.R
 import com.heads.thinking.funnytests.di.ComponentManager
 import com.heads.thinking.funnytests.di.mvvm.factory.ViewModelFactory
-import com.heads.thinking.funnytests.mvp.main.MainActivityViewModel
+import com.heads.thinking.funnytests.mvvm.main.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router

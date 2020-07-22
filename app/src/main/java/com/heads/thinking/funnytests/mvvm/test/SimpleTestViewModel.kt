@@ -1,8 +1,8 @@
-package com.heads.thinking.funnytests.mvp.test
+package com.heads.thinking.funnytests.mvvm.test
 
 import androidx.lifecycle.ViewModel
-import com.heads.thinking.funnytests.Api
-import com.heads.thinking.funnytests.adapter.TestItem
+import com.heads.thinking.funnytests.api.Api
+import com.heads.thinking.funnytests.item.TestItem
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.navigation.Screens
 import com.xwray.groupie.GroupAdapter

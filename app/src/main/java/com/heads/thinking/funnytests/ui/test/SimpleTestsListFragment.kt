@@ -1,4 +1,4 @@
-package com.heads.thinking.funnytests.ui.main
+package com.heads.thinking.funnytests.ui.test
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.heads.thinking.funnytests.R
 import com.heads.thinking.funnytests.di.ComponentManager
 import com.heads.thinking.funnytests.di.mvvm.factory.ViewModelFactory
-import com.heads.thinking.funnytests.mvp.test.SimpleTestViewModel
+import com.heads.thinking.funnytests.mvvm.test.SimpleTestViewModel
 import kotlinx.android.synthetic.main.fragment_simple_tests_list.*
 import javax.inject.Inject
 
@@ -40,6 +40,7 @@ class SimpleTestsListFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = SimpleTestsListFragment()
+        fun newInstance() =
+            SimpleTestsListFragment()
     }
 }

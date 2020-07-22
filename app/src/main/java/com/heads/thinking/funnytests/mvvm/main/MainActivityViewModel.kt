@@ -1,8 +1,8 @@
-package com.heads.thinking.funnytests.mvp.main
+package com.heads.thinking.funnytests.mvvm.main
 
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseUser
-import com.heads.thinking.funnytests.Api
+import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.navigation.Screens
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router

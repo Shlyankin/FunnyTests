@@ -1,13 +1,14 @@
-package com.heads.thinking.funnytests.adapter
+package com.heads.thinking.funnytests.item
 
 import android.view.View
+import androidx.databinding.ObservableField
 import com.heads.thinking.funnytests.R
 import com.heads.thinking.funnytests.databinding.ItemAnswerBinding
 import com.heads.thinking.funnytests.model.Answer
 import com.xwray.groupie.viewbinding.BindableItem
 
 class AnswerItem(val answer: Answer): BindableItem<ItemAnswerBinding>() {
-    var checked = false
+    var checked = ObservableField<Boolean>(false)
 
     override fun getLayout(): Int = R.layout.item_answer
 

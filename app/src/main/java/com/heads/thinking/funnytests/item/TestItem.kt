@@ -1,4 +1,4 @@
-package com.heads.thinking.funnytests.adapter
+package com.heads.thinking.funnytests.item
 
 import android.view.View
 import com.heads.thinking.funnytests.R
@@ -12,7 +12,7 @@ class TestItem(val test:Test): BindableItem<ItemTestBinding>() {
     override fun getLayout() = R.layout.item_test
 
     override fun bind(viewBinding: ItemTestBinding, position: Int) {
-        viewBinding.test = test
+        viewBinding.test = this
         Picasso.get().load(test.imageUrl).placeholder(R.drawable.bottle).into(viewBinding.testImage, object:
             Callback {
             override fun onSuccess() {

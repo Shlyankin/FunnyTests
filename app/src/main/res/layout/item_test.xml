@@ -9,7 +9,7 @@
 
         <variable
             name="test"
-            type="com.heads.thinking.funnytests.model.Test" />
+            type="com.heads.thinking.funnytests.item.TestItem" />
     </data>
 
     <LinearLayout
@@ -60,14 +60,14 @@
                     android:id="@+id/headerTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{test.title}"
+                    android:text="@{test.test.title}"
                     android:textSize="@dimen/header_text" />
 
                 <TextView
                     android:id="@+id/descriptionTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{test.description}"
+                    android:text="@{test.test.description}"
                     android:textSize="@dimen/main_text" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
