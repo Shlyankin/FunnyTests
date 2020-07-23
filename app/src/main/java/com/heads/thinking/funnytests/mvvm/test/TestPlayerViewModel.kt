@@ -115,7 +115,7 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
     }
 
     fun finishTest() {
-        router.navigateTo(Screens.TestResultScreen(test, test.checkResult(userAnswers)))
+        router.replaceScreen(Screens.TestResultScreen(test, test.checkResult(userAnswers)))
     }
 
     override fun onCleared() {
