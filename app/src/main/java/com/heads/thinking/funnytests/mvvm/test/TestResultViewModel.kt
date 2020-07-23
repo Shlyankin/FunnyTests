@@ -18,6 +18,7 @@ class TestResultViewModel@Inject constructor(val api: Api, val router: Router): 
     fun initViewModel(test: Test, result: TestResult) {
         this.test = test
         this.testResult = result
+        isInitialized = true
     }
 
     fun finishTest() {

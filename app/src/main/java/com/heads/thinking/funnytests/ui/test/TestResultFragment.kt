@@ -38,7 +38,7 @@ class TestResultFragment() : Fragment() {
             result = testResultViewModel.testResult
         }
 
-        var binder= DataBindingUtil.inflate<FragmentTestResultBinding>(inflater, R.layout.fragment_test_result,container,false)
+        val binder= DataBindingUtil.inflate<FragmentTestResultBinding>(inflater, R.layout.fragment_test_result,container,false)
         binder.testResultViewModel = testResultViewModel
         return binder.root
     }
