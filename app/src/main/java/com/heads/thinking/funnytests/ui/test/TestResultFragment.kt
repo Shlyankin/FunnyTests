@@ -11,18 +11,20 @@ import com.heads.thinking.funnytests.R
 import com.heads.thinking.funnytests.databinding.FragmentTestResultBinding
 import com.heads.thinking.funnytests.di.ComponentManager
 import com.heads.thinking.funnytests.di.mvvm.factory.ViewModelFactory
+import com.heads.thinking.funnytests.model.ResultSection
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.model.TestResult
 import com.heads.thinking.funnytests.mvvm.test.TestResultViewModel
+import kotlinx.android.synthetic.main.fragment_test_result.*
 import javax.inject.Inject
 
 
 class TestResultFragment() : Fragment() {
-    constructor(test: Test, result: TestResult): this() {
+    constructor(test: Test, resultsMap: Map<ResultSection, TestResult>): this() {
         this.test = test
-        this.result = result
+        this.resultsMap = resultsMap
     }
-    lateinit var result: TestResult
+    lateinit var resultsMap: Map<ResultSection, TestResult>
     lateinit var test: Test
 
     @Inject
@@ -32,10 +34,10 @@ class TestResultFragment() : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         ComponentManager.instance.getFragmentComponent(this).inject(this) // inject all objects
         testResultViewModel = ViewModelProviders.of(this, viewModelFactory).get(TestResultViewModel::class.java)
-        if(!testResultViewModel.isInitialized) testResultViewModel.initViewModel(test, result)
+        if(!testResultViewModel.isInitialized) testResultViewModel.initViewModel(test, resultsMap)
         else {
             test = testResultViewModel.test
-            result = testResultViewModel.testResult
+            resultsMap = testResultViewModel.testResult
         }
 
         val binder= DataBindingUtil.inflate<FragmentTestResultBinding>(inflater, R.layout.fragment_test_result,container,false)
@@ -45,11 +47,12 @@ class TestResultFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        resultsRecyclerView.adapter = testResultViewModel.adapter
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(test: Test, result: TestResult) = TestResultFragment(test, result)
+        fun newInstance(test: Test, testResult: Map<ResultSection, TestResult>) = TestResultFragment(test, testResult)
     }
 
 }

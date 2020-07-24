@@ -40,7 +40,6 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
         Toast.makeText(appContext, R.string.select_answer, Toast.LENGTH_SHORT).show()
     }
 
-    val userAnswers : ArrayList<Answer> = ArrayList()
     val currentQuestionObs = PublishSubject.create<Int>()
     var currentQuestionPos = 0
     val currentQuestion = ObservableField<Question>()
@@ -57,7 +56,7 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
                 currentQuestion.get()?.let {currentQuestion ->
                     for(answer in currentQuestion.answers)
                         adapter.add(AnswerItem(answer))
-                    adapter.add(ButtonItem(appContext.getString(R.string.next), R.drawable.bottle))
+                    adapter.add(ButtonItem(appContext.getString(R.string.next)))
                     adapter.setOnItemClickListener { item, view ->
                         when (item) {
                             is AnswerItem -> {
@@ -102,10 +101,10 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
             return
         }
         if (currentQuestionPos + 1 < test.questions.size) {
-            userAnswers.add(answer)
+            test.getResultById(answer.resultId)?.let { it.resultValue++ }
             currentQuestionObs.onNext(++currentQuestionPos)
         } else {
-            userAnswers.add(answer)
+            test.getResultById(answer.resultId)?.let { it.resultValue++ }
             finishTest()
         }
     }
@@ -115,7 +114,7 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
     }
 
     fun finishTest() {
-        router.replaceScreen(Screens.TestResultScreen(test, test.checkResult(userAnswers)))
+        router.replaceScreen(Screens.TestResultScreen(test, test.checkResult()))
     }
 
     override fun onCleared() {

@@ -1,5 +1,6 @@
 package com.heads.thinking.funnytests.navigation
 
+import com.heads.thinking.funnytests.model.ResultSection
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.model.TestResult
 import com.heads.thinking.funnytests.ui.settings.SettingsFragment
@@ -18,8 +19,8 @@ object Screens {
         override fun getFragment() = TestFragment.newInstance(test)
     }
 
-    data class TestResultScreen(val test: Test, val result: TestResult): SupportAppScreen() {
-        override fun getFragment() = TestResultFragment.newInstance(test, result)
+    data class TestResultScreen(val test: Test, val testResult: Map<ResultSection, TestResult>): SupportAppScreen() {
+        override fun getFragment() = TestResultFragment.newInstance(test, testResult)
     }
 
     data class TestPlayerScreen(val test: Test): SupportAppScreen() {

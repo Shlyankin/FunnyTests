@@ -14,48 +14,49 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/testImageView"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/resultsRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:layout_height="0dp"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/endTestButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            imageUrl="@{testResultViewModel.testResult.imageUrl}"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            tools:listitem="@layout/item_result" />
 
-        <TextView
-            android:id="@+id/headerTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{testResultViewModel.testResult.name}"
-            android:textSize="@dimen/header_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testImageView" />
-
-        <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="@{testResultViewModel.testResult.description}"
-            android:textSize="@dimen/main_text"
-            android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
-
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/endTestButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/finish_test"
+            android:layout_height="50dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:contentPadding="0dp"
+            android:onClick="@{testResultViewModel.finishTest}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{testResultViewModel.finishTest}"/>
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/layoutWithImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:background="@color/colorPrimary"
+                android:background="@color/colorPrimary">
+
+                <TextView
+                    android:id="@+id/buttonTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/finish_test"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/header_text" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
