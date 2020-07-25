@@ -1,6 +1,8 @@
 package com.heads.thinking.funnytests.di.component
 
 import android.content.Context
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.di.module.ActivityModule
 import com.heads.thinking.funnytests.di.mvvm.ActivityViewModelModule
@@ -18,6 +20,8 @@ interface ActivityComponent {
     fun navigationHolder(): NavigatorHolder
     fun realApi(): Api
     fun context(): Context
+    fun auth(): FirebaseAuth
+    fun user(): FirebaseUser?
 
     fun inject(activity: MainActivity)
 }

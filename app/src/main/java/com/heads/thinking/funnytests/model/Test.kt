@@ -1,8 +1,9 @@
 package com.heads.thinking.funnytests.model
 
 // need to add statistics
-data class Test(val id: String, val title: String, val description: String, val imageUrl: String,
-                val questions: List<Question>, val resultsSections: List<ResultSection>) {
+data class Test constructor(var id: Int, var title: String, var description: String, var imageUrl: String,
+                            var questions: List<Question>, var resultsSections: List<ResultSection>) {
+    constructor(): this(0, "", "", "", emptyList(), emptyList())
 
     fun getSectionById(id: Int): ResultSection? {
         for (section in resultsSections) {

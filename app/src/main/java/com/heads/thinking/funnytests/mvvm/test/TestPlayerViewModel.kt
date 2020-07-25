@@ -43,7 +43,7 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
     val currentQuestionObs = PublishSubject.create<Int>()
     var currentQuestionPos = 0
     val currentQuestion = ObservableField<Question>()
-    var mDisposable = CompositeDisposable()
+    private var mDisposable = CompositeDisposable()
     var isInitialized = false
     lateinit var test: Test
 

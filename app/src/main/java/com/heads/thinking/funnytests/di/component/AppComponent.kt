@@ -1,6 +1,8 @@
 package com.heads.thinking.funnytests.di.component
 
 import android.content.Context
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.heads.thinking.funnytests.App
 import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.di.module.ApiModule
@@ -20,6 +22,8 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun router(): Router
+    fun auth(): FirebaseAuth
+    fun user(): FirebaseUser?
     fun navigationHolder(): NavigatorHolder
     fun realApi(): Api
 

@@ -1,8 +1,8 @@
 package com.heads.thinking.funnytests.api
 
 import com.heads.thinking.funnytests.model.Test
-import io.reactivex.Single
+import io.reactivex.Maybe
 
 interface Api {
-    fun getTests() : Single<List<Test>>
+    fun getTests() : Maybe<List<Test>>
 }

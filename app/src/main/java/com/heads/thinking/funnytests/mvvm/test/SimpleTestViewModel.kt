@@ -1,5 +1,6 @@
 package com.heads.thinking.funnytests.mvvm.test
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.item.TestItem
@@ -14,7 +15,7 @@ import javax.inject.Inject
 class SimpleTestViewModel @Inject constructor(val api: Api, val router: Router): ViewModel() {
 
     public val adapter = GroupAdapter<GroupieViewHolder>()
-    var mDisposable = CompositeDisposable()
+    private var mDisposable = CompositeDisposable()
 
     init {
         adapter.setOnItemClickListener { item, view ->
@@ -26,13 +27,19 @@ class SimpleTestViewModel @Inject constructor(val api: Api, val router: Router):
 
     fun loadTests() {
         mDisposable.addAll(
-            api.getTests().subscribe { tests: List<Test> ->
+            api.getTests().subscribe ({ tests: List<Test> ->
                 adapter.clear()
                 tests.forEach {
                     adapter.add(TestItem(it))
                 }
-            }
+            }, {
+                Log.e("Custom", "Firebase Error: ${it.localizedMessage}")
+            })
         )
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        mDisposable.dispose()
+    }
 }

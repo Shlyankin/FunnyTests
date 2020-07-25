@@ -1,4 +1,5 @@
 package com.heads.thinking.funnytests.model
 
-data class Answer(val id: Int, val questionId: Int, val resultId: Int, val description: String) {
+data class Answer(var id: Int, var questionId: Int, var resultId: Int, var description: String) {
+    constructor(): this(0, 0, 0, "")
 }
