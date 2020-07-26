@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="@{testViewModel.test.title}"
                     tools:text="Title"
-                    android:textColor="@android:color/black"
+                    android:textColor="?attr/primaryTextColor"
                     android:textSize="@dimen/header_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -55,46 +55,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:text="@{testViewModel.test.description}"
-                    android:textColor="@android:color/black"
+                    android:textColor="?attr/primaryTextColor"
                     android:textSize="@dimen/main_text"
-                    tools:text="Description"
-                    app:layout_constraintBottom_toTopOf="@id/startButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/headerTextView"
+                    tools:text="Description" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/startButton"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="2dp"
-                    app:contentPadding="0dp"
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:onClick="@{testViewModel.startTest}"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/play"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:background="@color/transparent"/>
 
-                    <LinearLayout
-                        android:id="@+id/layoutWithImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        tools:background="@color/colorPrimary"
-                        android:background="@color/colorPrimary">
-
-                        <TextView
-                            android:id="@+id/buttonTextView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/start_test"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/black"
-                            android:textSize="@dimen/header_text" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </FrameLayout>

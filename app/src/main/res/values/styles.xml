@@ -1,15 +1,35 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Main colors -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!-- Other colors -->
+        <item name="primaryTextColor">@color/primaryText</item>
+        <item name="buttonNormalColor">@color/buttonNormal</item>
+        <item name="buttonHighlightColor">@color/buttonHighlight</item>
+        <item name="buttonTextColor">@color/buttonText</item>
+        <item name="progressBarColor">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.Launcher">
+    <!-- Launcher application theme. -->
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
 
+    <!-- Dark application theme. -->
+    <style name="Theme.App.Dark" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Main colors -->
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/darkColorAccent</item>
+        <!-- Other colors -->
+        <item name="primaryTextColor">@color/darkPrimaryText</item>
+        <item name="buttonNormalColor">@color/darkButtonNormal</item>
+        <item name="buttonHighlightColor">@color/darkButtonHighlight</item>
+        <item name="buttonTextColor">@color/darkButtonText</item>
+        <item name="progressBarColor">@color/darkColorAccent</item>
+    </style>
 </resources>

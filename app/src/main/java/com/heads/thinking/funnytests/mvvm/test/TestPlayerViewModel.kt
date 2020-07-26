@@ -48,6 +48,7 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
     lateinit var test: Test
 
     fun initViewModel(test: Test) {
+        test.clearResults()
         this.test = test
         mDisposable.addAll(
             currentQuestionObs.subscribe { currentQuestionPos ->
@@ -76,6 +77,10 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
         isInitialized = true
     }
 
+    private fun clearTestResult() {
+
+    }
+
     private fun uncheckAnswers() {
         for (i in  0 until adapter.itemCount) {
             val item = adapter.getItem(i)
@@ -101,10 +106,10 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
             return
         }
         if (currentQuestionPos + 1 < test.questions.size) {
-            test.getResultById(answer.resultId)?.let { it.resultValue++ }
+            test.getSectionById(currentQuestion.get()?.resultSectionId!!)?.let { it.resultValue += answer.answerValue }
             currentQuestionObs.onNext(++currentQuestionPos)
         } else {
-            test.getResultById(answer.resultId)?.let { it.resultValue++ }
+            test.getSectionById(currentQuestion.get()?.resultSectionId!!)?.let { it.resultValue += answer.answerValue }
             finishTest()
         }
     }

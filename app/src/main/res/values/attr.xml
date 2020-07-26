@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="primaryTextColor" format="reference|color"/>
+    <attr name="buttonNormalColor" format="reference|color"/>
+    <attr name="buttonHighlightColor" format="reference|color" />
+    <attr name="buttonTextColor" format="reference|color" />
+    <attr name="primaryButtonTheme" format="reference" />
+    <attr name="progressBarColor" format="reference|color" />
+</resources>

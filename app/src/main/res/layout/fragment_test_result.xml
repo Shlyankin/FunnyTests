@@ -21,42 +21,22 @@
             android:layout_height="0dp"
             android:scrollbars="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/endTestButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_result" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/endTestButton"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="2dp"
-            app:contentPadding="0dp"
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:onClick="@{testResultViewModel.finishTest}"
+            android:layout_margin="15dp"
+            android:src="@drawable/test_passed"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:background="@color/transparent"/>
 
-            <LinearLayout
-                android:id="@+id/layoutWithImage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:background="@color/colorPrimary"
-                android:background="@color/colorPrimary">
-
-                <TextView
-                    android:id="@+id/buttonTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/finish_test"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/header_text" />
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

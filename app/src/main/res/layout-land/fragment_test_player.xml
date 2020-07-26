@@ -17,45 +17,51 @@
         android:layout_height="match_parent"
         tools:context=".ui.test.TestPlayerFragment">
 
-        <TextView
-            android:id="@+id/questionTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{testPlayerViewModel.currentQuestion.description}"
-            android:textAlignment="center"
-            android:textColor="?attr/primaryTextColor"
-            android:textSize="@dimen/header_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            tools:text="Question?" />
-
         <ImageView
             android:id="@+id/imageView"
             imageUrl="@{testPlayerViewModel.currentQuestion.imageUrl}"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="350dp"
+            android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/answersRecyclerView"
-            android:layout_width="match_parent"
+        <ScrollView
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scrollbars="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/questionTextView"
-            app:layout_constraintVertical_bias="0.322"
-            tools:listitem="@layout/item_answer" />
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/questionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{testPlayerViewModel.currentQuestion.description}"
+                    android:textAlignment="center"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="@dimen/header_text"
+                    tools:text="Question?" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/answersRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="true"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_answer" />
+            </LinearLayout>
+
+        </ScrollView>
 
         <ImageButton
             android:id="@+id/imageButton"

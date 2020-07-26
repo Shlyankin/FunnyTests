@@ -12,7 +12,8 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,45 +34,45 @@
 
             <TextView
                 android:id="@+id/sectionName"
-                android:paddingLeft="10dp"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{item.testResult.first.name}"
                 android:layout_gravity="center"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="@dimen/header_text"
                 tools:text="Section 1" />
 
             <TextView
                 android:id="@+id/sectionDescription"
-                android:paddingLeft="10dp"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{item.testResult.first.description}"
                 android:layout_gravity="center"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="@dimen/main_text"
                 tools:text="answer" />
 
             <TextView
                 android:id="@+id/resultName"
-                android:paddingLeft="10dp"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{item.testResult.second.name}"
                 android:layout_gravity="center"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="@dimen/header_text"
                 tools:text="Result" />
 
             <TextView
                 android:id="@+id/resultDescription"
-                android:paddingLeft="10dp"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{item.testResult.second.description}"
                 android:layout_gravity="center"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="@dimen/main_text"
                 tools:text="answer" />
 

@@ -1,6 +1,6 @@
 package com.heads.thinking.funnytests.model
 
-class ResultSection(var id: Int, var name: String, var description: String, var testResults: List<TestResult>) {
+class ResultSection(var id: Int, var name: String, var description: String, var testResults: List<TestResult>, var resultValue: Int = 0) {
     constructor(): this(0, "", "", emptyList())
     override fun equals(other: Any?): Boolean = if (other is ResultSection) other.id == this.id else false
 
