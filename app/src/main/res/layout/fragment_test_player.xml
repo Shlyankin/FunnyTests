@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@color/transparent"
-            android:onClick="@{testPlayerViewModel.nextQuestion}"
+            android:onClick="@{testPlayerViewModel::nextQuestion}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/next"/>

@@ -66,7 +66,7 @@
                     android:id="@+id/imageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="@{testViewModel.startTest}"
+                    android:onClick="@{testViewModel::startTest}"
                     android:layout_margin="15dp"
                     android:src="@drawable/play"
                     app:layout_constraintBottom_toBottomOf="parent"
