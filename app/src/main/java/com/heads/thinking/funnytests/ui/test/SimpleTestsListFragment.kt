@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.heads.thinking.funnytests.R
 import com.heads.thinking.funnytests.di.ComponentManager
 import com.heads.thinking.funnytests.di.mvvm.factory.ViewModelFactory
@@ -35,6 +37,32 @@ class SimpleTestsListFragment : Fragment() {
         simpleTestViewModel = ViewModelProviders.of(this, viewModelFactory).get(SimpleTestViewModel::class.java)
         testRecyclerView.adapter = simpleTestViewModel.adapter
         simpleTestViewModel.loadTests()
+
+
+        val itemTouchHelper = object: ItemTouchHelper.Callback() {
+
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ): Int {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        }
+        ItemTouchHelper(itemTouchHelper).attachToRecyclerView(testRecyclerView)
+
         // list init
     }
 
