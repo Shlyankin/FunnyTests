@@ -3,6 +3,7 @@ package com.heads.thinking.funnytests.navigation
 import com.heads.thinking.funnytests.model.ResultSection
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.model.TestResult
+import com.heads.thinking.funnytests.ui.create.CreateTestFragment
 import com.heads.thinking.funnytests.ui.settings.SettingsFragment
 import com.heads.thinking.funnytests.ui.test.SimpleTestsListFragment
 import com.heads.thinking.funnytests.ui.test.TestFragment
@@ -11,6 +12,11 @@ import com.heads.thinking.funnytests.ui.test.TestResultFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 object Screens {
+
+    object CreateTestScreen: SupportAppScreen() {
+        override fun getFragment() = CreateTestFragment.newInstance()
+    }
+
     object SimpleTestListScreen: SupportAppScreen() {
         override fun getFragment() = SimpleTestsListFragment.newInstance()
     }

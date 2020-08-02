@@ -11,6 +11,7 @@ import com.heads.thinking.funnytests.item.editable.TestEditableItem
 import com.heads.thinking.funnytests.model.Test
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.OnItemClickListener
 import com.xwray.groupie.Section
 import com.xwray.groupie.groupiex.plusAssign
 import io.reactivex.disposables.CompositeDisposable
@@ -21,24 +22,52 @@ class CreateTestViewModel @Inject constructor(val api: Api, val context: Context
     val test = Test()
     private val mDisposable = CompositeDisposable()
     val adapter = GroupAdapter<GroupieViewHolder>()
+
+    fun createAnswerSection(): Section {
+        return Section().apply {
+            this.setFooter(ButtonItem(context.getString(R.string.create_answer)))
+        }
+    }
+
+    private val questionSection = Section().apply {
+        this.setFooter(ButtonItem(context.getString(R.string.create_question)))
+    }
+
+    private val resultSection = Section().apply {
+        this.setHeader(ResultSectionEditableItem(View.OnClickListener {
+            // TODO: open images
+        }))
+        this.setFooter(ButtonItem(context.getString(R.string.create_result_section)))
+    }
+
     init {
         adapter.add(TestEditableItem(View.OnClickListener {
             // TODO: open images
         }))
-        adapter += Section().apply {
-            this.setHeader(ResultSectionEditableItem(View.OnClickListener {
-                // TODO: open images
-            }))
-            this.setFooter(ButtonItem(context.getString(R.string.create_section)))
-        }
+        adapter += resultSection
+        adapter.setOnItemClickListener(OnItemClickListener { item, view ->
+            if (item is ButtonItem) {
+                when(item.text) {
+                    context.getString(R.string.create_result_section) -> {
+                        resultSection += ResultSectionEditableItem(View.OnClickListener {
+                            // TODO: open images
+                        })
+                    }
+                    context.getString(R.string.create_question) -> {
+                        // TODO: add qustion group + answer group
+                    }
+                    context.getString(R.string.create_answer) -> {
+
+                    }
+                }
+            }
+        })
     }
+
+    
 
     fun createTest(view: View) {
 
-    }
-
-    fun getImage(): String {
-        return "url"
     }
 
     override fun onCleared() {

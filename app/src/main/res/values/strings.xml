@@ -8,5 +8,7 @@
     <string name="start_test">Start Test</string>
     <string name="select_answer">Select answer</string>
     <string name="finish_test">Finish Test</string>
-    <string name="create_section">Create Result Section</string>
+    <string name="create_result_section">Create Result Section</string>
+    <string name="create_question">Create Question</string>
+    <string name="create_answer">Create Answer</string>
 </resources>

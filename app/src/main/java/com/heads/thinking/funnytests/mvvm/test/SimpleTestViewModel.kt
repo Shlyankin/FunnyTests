@@ -1,6 +1,7 @@
 package com.heads.thinking.funnytests.mvvm.test
 
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModel
 import com.heads.thinking.funnytests.api.Api
 import com.heads.thinking.funnytests.item.TestItem
@@ -36,6 +37,14 @@ class SimpleTestViewModel @Inject constructor(val api: Api, val router: Router):
                 Log.e("Custom", "Firebase Error: ${it.localizedMessage}")
             })
         )
+    }
+
+    fun createTest() {
+        router.navigateTo(Screens.CreateTestScreen)
+    }
+
+    fun createTest(view: View) {
+        createTest()
     }
 
     override fun onCleared() {

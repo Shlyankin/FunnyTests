@@ -4,6 +4,7 @@ import android.content.Context
 import com.heads.thinking.funnytests.di.module.FragmentModule
 import com.heads.thinking.funnytests.di.mvvm.ViewModelModule
 import com.heads.thinking.funnytests.di.scope.FragmentScope
+import com.heads.thinking.funnytests.ui.create.CreateTestFragment
 import com.heads.thinking.funnytests.ui.settings.SettingsFragment
 import com.heads.thinking.funnytests.ui.test.SimpleTestsListFragment
 import com.heads.thinking.funnytests.ui.test.TestFragment
@@ -26,4 +27,6 @@ interface FragmentComponent {
     fun inject(fragment: TestPlayerFragment)
 
     fun inject(fragment: TestResultFragment)
+
+    fun inject(createTestFragment: CreateTestFragment)
 }
