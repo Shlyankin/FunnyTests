@@ -6,9 +6,15 @@ import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import com.xwray.groupie.GroupieViewHolder
 
+@BindingAdapter("linkAdapter")
+public fun setAdapter(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<GroupieViewHolder>) {
+    recyclerView.adapter = adapter
+}
 
 @BindingAdapter("imageUrl")
 public fun loadImage(imageView: ImageView, imageUrl: String?) {

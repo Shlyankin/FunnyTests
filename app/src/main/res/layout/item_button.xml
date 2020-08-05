@@ -28,7 +28,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/next" />
+
+            android:visibility="@{item.imageResource == null ? View.INVISIBLE : View.VISIBLE}"
+            android:src="@{item.imageResource == null ? @drawable/bottle : item.imageResource}" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -42,7 +44,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{item.onClickListener}">
 
             <LinearLayout
                 android:id="@+id/layoutWithImage"

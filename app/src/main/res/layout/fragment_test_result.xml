@@ -25,7 +25,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_result" />
+            tools:listitem="@layout/item_result"
+            adapter="@{testResultViewModel.adapter}"/>
 
         <ImageButton
             android:id="@+id/imageButton"

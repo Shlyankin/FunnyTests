@@ -11,78 +11,48 @@
             type="com.heads.thinking.funnytests.mvvm.create.CreateTestViewModel" />
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.test.TestFragment">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/createTestRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_editable_test"
+            linkAdapter="@{viewModel.adapter}" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/addQuestion"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="15dp"
+            android:adjustViewBounds="true"
+            android:background="@color/transparent"
+            android:onClick="@{viewModel.createQuestion}"
+            android:scaleType="fitCenter"
+            android:src="@drawable/test_passed"
+            app:layout_constraintBottom_toTopOf="@+id/createTest"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
-
-                <ImageView
-                    android:id="@+id/testImageView"
-                    imageUrl="@{viewModel.test.imageUrl}"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitXY"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-                <EditText
-                    android:id="@+id/headerTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.test.title}"
-                    tools:text="Title"
-                    android:textColor="?attr/primaryTextColor"
-                    android:textSize="@dimen/header_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/testImageView" />
-
-                <EditText
-                    android:id="@+id/descriptionTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:text="@{viewModel.test.description}"
-                    android:textColor="?attr/primaryTextColor"
-                    android:textSize="@dimen/main_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/headerTextView"
-                    tools:text="Description" />
-
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{viewModel.createTest}"
-                    android:layout_margin="15dp"
-                    android:src="@drawable/play"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:background="@color/transparent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
-    </FrameLayout>
+        <ImageButton
+            android:id="@+id/createTest"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="15dp"
+            android:adjustViewBounds="true"
+            android:background="@color/transparent"
+            android:onClick="@{viewModel.createTest}"
+            android:scaleType="fitCenter"
+            android:src="@drawable/create"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

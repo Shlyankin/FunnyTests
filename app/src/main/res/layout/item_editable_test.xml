@@ -8,7 +8,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="test"
+            name="item"
             type="com.heads.thinking.funnytests.item.editable.TestEditableItem" />
     </data>
 
@@ -20,7 +20,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
             app:cardCornerRadius="0dp"
             app:cardElevation="10dp"
@@ -53,16 +53,26 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:visibility="visible"
-                    android:onClick="@{test.onImageSetListener}"
+                    android:onClick="@{item::onImageClickListener}"
                     android:src="@drawable/image"/>
 
                 <EditText
-                    android:id="@+id/headerTextView"
+                    android:id="@+id/headerEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{test.test.description}"
+                    android:text="@{item.test.description}"
                     android:textSize="@dimen/header_text"
-                    tools:text="Title"
+                    android:hint="@string/test_title"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/descriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.test.description}"
+                    android:textSize="@dimen/main_text"
+                    android:hint="@string/test_description"
                     android:textColor="?attr/primaryTextColor"
                     android:textAlignment="center"/>
             </LinearLayout>

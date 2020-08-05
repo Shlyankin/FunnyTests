@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="com.heads.thinking.funnytests.item.editable.ResultEditableItem" />
+            type="com.heads.thinking.funnytests.item.editable.QuestionEditableItem" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -51,29 +51,18 @@
                 android:onClick="@{item::onImageClickListener}"
                 android:src="@drawable/image"/>
 
-
             <EditText
-                android:id="@+id/resultName"
+                android:id="@+id/questionDescription"
                 android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{item.testResult.name}"
+                android:text="@{item.question.description}"
+                android:textAlignment="center"
                 android:layout_gravity="center"
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="@dimen/header_text"
-                android:hint="@string/results_title" />
-
-            <EditText
-                android:id="@+id/resultDescription"
-                android:paddingHorizontal="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{item.testResult.description}"
-                android:layout_gravity="center"
-                android:textColor="?attr/primaryTextColor"
-                android:textSize="@dimen/main_text"
-                android:hint="@string/results_description" />
-
+                android:hint="@string/question_description" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </layout>

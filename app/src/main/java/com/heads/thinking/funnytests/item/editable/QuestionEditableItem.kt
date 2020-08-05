@@ -4,29 +4,29 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.ObservableField
 import com.heads.thinking.funnytests.R
-import com.heads.thinking.funnytests.databinding.ItemEditableTestBinding
-import com.heads.thinking.funnytests.model.Test
+import com.heads.thinking.funnytests.databinding.ItemEditableQuestionBinding
+import com.heads.thinking.funnytests.model.Question
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.viewbinding.BindableItem
 import io.reactivex.subjects.SingleSubject
 
-class TestEditableItem(val getImage: () -> SingleSubject<String>): BindableItem<ItemEditableTestBinding>() {
-    val test = ObservableField(Test())
+class QuestionEditableItem(val getImage: () -> SingleSubject<String>): BindableItem<ItemEditableQuestionBinding>() {
 
-    val listOfResultSectionsItem = ArrayList<ResultSectionEditableItem>()
+    val question = ObservableField(Question())
+    val listOfAnswersItem = ArrayList<AnswerEditableItem>()
 
-    override fun getLayout() = R.layout.item_editable_test
+    override fun getLayout(): Int = R.layout.item_editable_question
 
-    override fun bind(viewBinding: ItemEditableTestBinding, position: Int) {
+    override fun bind(viewBinding: ItemEditableQuestionBinding, position: Int) {
         viewBinding.item = this
     }
 
-    override fun initializeViewBinding(view: View): ItemEditableTestBinding = ItemEditableTestBinding.bind(view)
+    override fun initializeViewBinding(view: View): ItemEditableQuestionBinding = ItemEditableQuestionBinding.bind(view)
 
     fun onImageClickListener(view: View) {
         val imageUrl = getImage().subscribe { url ->
-            test.get()?.imageUrl = url
+            question.get()?.imageUrl = url
             if (view is ImageView) {
                 Picasso.get().load(url).placeholder(R.drawable.bottle).into(view, object:
                     Callback {

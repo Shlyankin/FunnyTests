@@ -1,7 +1,7 @@
 package com.heads.thinking.funnytests.model
 
-class ResultSection(var id: Int, var name: String, var description: String, var testResults: List<TestResult>, var resultValue: Int = 0) {
-    constructor(): this(0, "", "", emptyList())
+class ResultSection(var id: Int, var name: String, var description: String, var testResults: MutableList<TestResult>, var resultValue: Int = 0) {
+    constructor(): this(0, "", "", mutableListOf<TestResult>())
     override fun equals(other: Any?): Boolean = if (other is ResultSection) other.id == this.id else false
 
     override fun hashCode(): Int {

@@ -15,7 +15,6 @@ import com.heads.thinking.funnytests.model.ResultSection
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.model.TestResult
 import com.heads.thinking.funnytests.mvvm.test.TestResultViewModel
-import kotlinx.android.synthetic.main.fragment_test_result.*
 import javax.inject.Inject
 
 
@@ -47,7 +46,6 @@ class TestResultFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        resultsRecyclerView.adapter = testResultViewModel.adapter
     }
 
     companion object {

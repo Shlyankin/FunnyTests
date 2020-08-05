@@ -28,14 +28,14 @@
 
         <EditText
             android:id="@+id/headerTextView"
-            android:paddingStart="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{item.answer.description}"
             android:layout_gravity="center"
+            android:hint="@string/write_answer"
+            android:paddingStart="10dp"
+            android:text="@{item.answer.description}"
             android:textColor="?primaryTextColor"
-            android:textSize="@dimen/main_text"
-            tools:text="answer" />
+            android:textSize="@dimen/main_text" />
 
     </LinearLayout>
 </layout>

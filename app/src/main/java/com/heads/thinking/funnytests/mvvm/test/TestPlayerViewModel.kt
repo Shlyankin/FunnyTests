@@ -57,7 +57,9 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
                 currentQuestion.get()?.let {currentQuestion ->
                     for(answer in currentQuestion.answers)
                         adapter.add(AnswerItem(answer))
-                    adapter.add(ButtonItem(appContext.getString(R.string.next)))
+                    adapter.add(ButtonItem(appContext.getString(R.string.next), View.OnClickListener {
+                        nextQuestion()
+                    }).apply { this.imageResource.set(appContext.getDrawable(R.drawable.next)) })
                     adapter.setOnItemClickListener { item, view ->
                         when (item) {
                             is AnswerItem -> {
@@ -65,7 +67,7 @@ class TestPlayerViewModel @Inject constructor(private val appContext: Context, p
                                 item.checked.set(true)
                             }
                             is ButtonItem -> {
-                                nextQuestion()
+                                // TODO: item.onClickListener
                             }
                         }
                     }

@@ -4,8 +4,8 @@ import com.heads.thinking.funnytests.exception.TestException
 
 // need to add statistics
 data class Test constructor(var id: Int, var title: String, var description: String, var imageUrl: String,
-                            var questions: List<Question>, var resultsSections: List<ResultSection>) {
-    constructor(): this(0, "", "", "", emptyList(), emptyList())
+                            var questions: MutableList<Question>, var resultsSections: MutableList<ResultSection>) {
+    constructor(): this(0, "", "", "", mutableListOf<Question>(), mutableListOf<ResultSection>())
 
     fun clearResults() {
         for (section in resultsSections) {

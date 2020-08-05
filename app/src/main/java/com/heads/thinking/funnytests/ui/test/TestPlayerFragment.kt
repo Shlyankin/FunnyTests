@@ -15,7 +15,6 @@ import com.heads.thinking.funnytests.di.ComponentManager
 import com.heads.thinking.funnytests.di.mvvm.factory.ViewModelFactory
 import com.heads.thinking.funnytests.model.Test
 import com.heads.thinking.funnytests.mvvm.test.TestPlayerViewModel
-import kotlinx.android.synthetic.main.fragment_test_player.*
 import javax.inject.Inject
 
 class TestPlayerFragment() : Fragment() {
@@ -48,8 +47,6 @@ class TestPlayerFragment() : Fragment() {
                 testPlayerViewModel.showToast.value = false
             }
         })
-        answersRecyclerView.adapter = testPlayerViewModel.adapter
-
     }
 
     companion object {

@@ -2,6 +2,7 @@ package com.heads.thinking.funnytests.di.mvvm
 
 import androidx.lifecycle.ViewModel
 import com.heads.thinking.funnytests.di.qualifier.ViewModelKey
+import com.heads.thinking.funnytests.mvvm.create.CreateTestViewModel
 import com.heads.thinking.funnytests.mvvm.test.SimpleTestViewModel
 import com.heads.thinking.funnytests.mvvm.test.TestPlayerViewModel
 import com.heads.thinking.funnytests.mvvm.test.TestResultViewModel
@@ -35,4 +36,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TestResultViewModel::class)
     abstract fun bindTestResultViewModel(testResultViewModel: TestResultViewModel) : ViewModel
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CreateTestViewModel::class)
+    abstract fun bindCreateTestViewModel(createTestViewModel: CreateTestViewModel) : ViewModel
 }

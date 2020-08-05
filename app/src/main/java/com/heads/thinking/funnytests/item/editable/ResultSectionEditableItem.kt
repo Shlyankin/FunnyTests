@@ -7,8 +7,12 @@ import com.heads.thinking.funnytests.databinding.ItemEditableResultSectionBindin
 import com.heads.thinking.funnytests.model.ResultSection
 import com.xwray.groupie.viewbinding.BindableItem
 
-class ResultSectionEditableItem(val onImageSetListener: View.OnClickListener): BindableItem<ItemEditableResultSectionBinding>() {
+class ResultSectionEditableItem(): BindableItem<ItemEditableResultSectionBinding>() {
+
     val resultSection = ObservableField(ResultSection())
+
+    val listOfResultsItem = ArrayList<ResultEditableItem>()
+
     override fun getLayout(): Int = R.layout.item_editable_result_section
 
     override fun bind(viewBinding: ItemEditableResultSectionBinding, position: Int) {
@@ -16,5 +20,4 @@ class ResultSectionEditableItem(val onImageSetListener: View.OnClickListener): B
     }
 
     override fun initializeViewBinding(view: View): ItemEditableResultSectionBinding = ItemEditableResultSectionBinding.bind(view)
-
 }

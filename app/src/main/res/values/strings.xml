@@ -11,4 +11,21 @@
     <string name="create_result_section">Create Result Section</string>
     <string name="create_question">Create Question</string>
     <string name="create_answer">Create Answer</string>
+
+    <string name="file_provider_name" translatable="false">.fileProvider</string>
+    <string name="select_capture_image">Please select or capture image</string>
+    <string name="camera_permission_required">Camera permission is required for completing image picking process</string>
+    <string name="error_get_file">Error while getting file</string>
+    <string name="cant_find_image">Can`t find image</string>
+    <string name="create_result">Create result</string>
+    <string name="write_answer">Write answer</string>
+    <string name="write_result_title">Write result title</string>
+    <string name="write_description">Write description</string>
+    <string name="results_description">Results description</string>
+    <string name="results_title">Results title</string>
+    <string name="test_title">Test title</string>
+    <string name="test_description">Test description</string>
+    <string name="section_title">Section title</string>
+    <string name="section_description">Section description</string>
+    <string name="question_description">Question description</string>
 </resources>
