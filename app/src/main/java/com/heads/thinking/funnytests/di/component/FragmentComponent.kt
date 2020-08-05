@@ -6,7 +6,6 @@ import com.heads.thinking.funnytests.di.mvvm.ViewModelModule
 import com.heads.thinking.funnytests.di.scope.FragmentScope
 import com.heads.thinking.funnytests.ui.settings.SettingsFragment
 import com.heads.thinking.funnytests.ui.test.SimpleTestsListFragment
-import com.heads.thinking.funnytests.ui.test.TestFragment
 import com.heads.thinking.funnytests.ui.test.TestPlayerFragment
 import com.heads.thinking.funnytests.ui.test.TestResultFragment
 import dagger.Component
@@ -20,8 +19,6 @@ interface FragmentComponent {
     fun inject(fragment: SimpleTestsListFragment)
 
     fun inject(fragment: SettingsFragment)
-
-    fun inject(fragment: TestFragment)
 
     fun inject(fragment: TestPlayerFragment)
 

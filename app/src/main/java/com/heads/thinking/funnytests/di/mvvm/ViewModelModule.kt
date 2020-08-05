@@ -5,7 +5,6 @@ import com.heads.thinking.funnytests.di.qualifier.ViewModelKey
 import com.heads.thinking.funnytests.mvvm.test.SimpleTestViewModel
 import com.heads.thinking.funnytests.mvvm.test.TestPlayerViewModel
 import com.heads.thinking.funnytests.mvvm.test.TestResultViewModel
-import com.heads.thinking.funnytests.mvvm.test.TestViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,12 +16,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SimpleTestViewModel::class)
     abstract fun bindSimpleTestViewModel(simpleTestViewModel: SimpleTestViewModel) : ViewModel
-
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(TestViewModel::class)
-    abstract fun bindTestViewModel(testViewModel: TestViewModel) : ViewModel
 
 
     @Binds

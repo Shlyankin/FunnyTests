@@ -20,7 +20,7 @@ class SimpleTestViewModel @Inject constructor(val api: Api, val router: Router):
     init {
         adapter.setOnItemClickListener { item, view ->
             if (item is TestItem) {
-                router.navigateTo(Screens.TestScreen(item.test))
+                router.navigateTo(Screens.TestPlayerScreen(item.test))
             }
         }
     }

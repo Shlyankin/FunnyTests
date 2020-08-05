@@ -13,6 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
         android:padding="5dp"
         android:layout_margin="10dp"
         android:background="@{item.color}"
@@ -20,27 +22,26 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <ImageView
-                    imageUrl="@{item.testResult.second.imageUrl}"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
+                    android:layout_height="250dp"
                     android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    imageUrl="@{item.testResult.second.imageUrl}"
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/sectionName"

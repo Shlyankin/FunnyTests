@@ -57,16 +57,6 @@
             app:layout_constraintVertical_bias="0.322"
             tools:listitem="@layout/item_answer" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@color/transparent"
-            android:onClick="@{testPlayerViewModel::nextQuestion}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/next"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
